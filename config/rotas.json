@@ -1,0 +1,62 @@
+{
+  "_sobre": "Rotas do teste com a Miriã e o Maicky (13 a 27/11/2026). Origens e destinos usam códigos de cidade, que cobrem todos os aeroportos da cidade (SAO = GRU, CGH e VCP).",
+  "moeda": "brl",
+  "mercado": null,
+  "origens": [
+    {"codigo": "SAO", "nome": "São Paulo", "detalhe": "GRU, CGH e VCP", "busca": "Sao Paulo", "aeroportos": "GRU,CGH,VCP", "prioridade": 1},
+    {"codigo": "RIO", "nome": "Rio de Janeiro", "detalhe": "GIG", "busca": "Rio de Janeiro", "aeroportos": "GIG", "prioridade": 2},
+    {"codigo": "BHZ", "nome": "Belo Horizonte", "detalhe": "CNF", "busca": "Belo Horizonte", "aeroportos": "CNF", "prioridade": 2},
+    {"codigo": "BSB", "nome": "Brasília", "detalhe": "BSB", "busca": "Brasilia", "aeroportos": "BSB", "prioridade": 2}
+  ],
+  "destinos": [
+    {"codigo": "LIS", "nome": "Lisboa", "busca": "Lisbon", "aeroportos": "LIS"},
+    {"codigo": "NYC", "nome": "Nova York", "busca": "New York", "aeroportos": "JFK,EWR,LGA"},
+    {"codigo": "MIA", "nome": "Miami", "busca": "Miami", "aeroportos": "MIA"},
+    {"codigo": "YTO", "nome": "Toronto", "busca": "Toronto", "aeroportos": "YYZ"},
+    {"codigo": "PAR", "nome": "Paris", "busca": "Paris", "aeroportos": "CDG,ORY"},
+    {"codigo": "MAD", "nome": "Madri", "busca": "Madrid", "aeroportos": "MAD"},
+    {"codigo": "AMS", "nome": "Amsterdã", "busca": "Amsterdam", "aeroportos": "AMS"},
+    {"codigo": "FRA", "nome": "Frankfurt", "busca": "Frankfurt", "aeroportos": "FRA"},
+    {"codigo": "MUC", "nome": "Munique", "busca": "Munich", "aeroportos": "MUC"},
+    {"codigo": "IST", "nome": "Istambul", "busca": "Istanbul", "aeroportos": "IST,SAW"},
+    {"codigo": "SHA", "nome": "Xangai", "busca": "Shanghai", "aeroportos": "PVG,SHA"},
+    {"codigo": "HKG", "nome": "Hong Kong", "busca": "Hong Kong", "aeroportos": "HKG"},
+    {"codigo": "BJS", "nome": "Pequim", "busca": "Beijing", "aeroportos": "PEK,PKX"},
+    {"codigo": "TYO", "nome": "Tóquio", "busca": "Tokyo", "aeroportos": "HND,NRT"}
+  ],
+  "busca": {
+    "meses_a_frente_de": 1,
+    "meses_a_frente_ate": 9,
+    "estadia_min_dias": 5,
+    "estadia_max_dias": 25,
+    "antecedencia_min_dias": 7,
+    "limite_por_consulta": 1000,
+    "pausa_entre_consultas_s": 0.15
+  },
+  "agenda": {
+    "_sobre": "Prioridade 1 roda em toda execução (a cada 6 horas). Prioridade 2 roda só nas execuções destas horas UTC.",
+    "horas_utc_prioridade_2": [0, 12]
+  },
+  "regras": {
+    "desconto_minimo": 0.30,
+    "desconto_erro_tarifario": 0.50,
+    "amostra_minima": 12,
+    "amostra_minima_mes": 6,
+    "max_escalas": 1,
+    "dias_memoria": 10,
+    "max_achados_por_rota": 3,
+    "validade_horas": 30,
+    "dias_historico": 30
+  },
+  "conferencia": {
+    "_sobre": "Conferência no Google Flights pela SerpApi. O plano grátis tem 250 buscas por mês; o teto abaixo deixa folga.",
+    "max_por_execucao": 3,
+    "teto_mensal": 230,
+    "tolerancia_preco": 0.15
+  },
+  "site": {
+    "titulo": "Achados do motor",
+    "subtitulo": "Teste do Clube VIP com a Miriã · 13 a 27/11",
+    "mostrar_nao_conferidos": true
+  }
+}

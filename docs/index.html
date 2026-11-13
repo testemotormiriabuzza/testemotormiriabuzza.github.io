@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Achados do motor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600&display=swap">
+<style>
+/* Lista de achados em cartões, com filtros no topo e a tabela de rotas monitoradas no fim. Identidade do Clube VIP. */
+:root {
+  --bg: #FBF8F3; --surface: #FFFDF9; --surface-2: #F1EBE1; --ink: #14213D; --muted: #4E586B; --line: #E3DACB;
+  --accent: #A63D15; --accent-strong: #F26B3A; --ok: #1F6B45; --ok-bg: #DCEFE3; --warn: #7A5200; --warn-bg: #F6E8C8;
+  --alert: #A32020; --alert-bg: #FBE3E3;
+  --font-display: 'Fraunces', Georgia, serif; --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-data: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0E1628; --surface: #15203A; --surface-2: #1B2847; --ink: #E8ECF4; --muted: #A7B2C6; --line: #2A3758;
+    --accent: #FF9466; --accent-strong: #F26B3A; --ok: #7AD3A4; --ok-bg: #12342A; --warn: #F2C266; --warn-bg: #3A2C0F;
+    --alert: #FF8E8E; --alert-bg: #3D1717; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 56px; }
+.wrap { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+h1, h2, h3, p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+header { display: flex; flex-direction: column; gap: 8px; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 5vw, 42px); line-height: 1.05; text-wrap: balance; }
+.sub { color: var(--muted); }
+.updated { font-family: var(--font-data); font-size: 13px; color: var(--muted); }
+.banner { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 10px 14px; font-weight: 700; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; }
+.stat b { font-family: var(--font-data); font-weight: 500; font-size: 24px; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13px; color: var(--muted); }
+details.how { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+details.how summary { cursor: pointer; font-weight: 700; }
+details.how ul { margin: 10px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: var(--muted); }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.filters label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); font-weight: 500; }
+.filters label.check { flex-direction: row; align-items: center; gap: 8px; color: var(--ink); padding-bottom: 8px; }
+select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-width: 150px; }
+input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent-strong); }
+.count { font-size: 14px; color: var(--muted); margin-left: auto; padding-bottom: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card .top { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
+.route { font-family: var(--font-display); font-weight: 600; font-size: 21px; line-height: 1.15; overflow-wrap: anywhere; }
+.airports { font-size: 12px; color: var(--muted); font-family: var(--font-data); }
+.chip { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.chip.ok { color: var(--ok); background: var(--ok-bg); }
+.chip.pend { color: var(--warn); background: var(--warn-bg); }
+.chip.err { color: var(--alert); background: var(--alert-bg); }
+.price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.price b { font-family: var(--font-data); font-weight: 500; font-size: 26px; font-variant-numeric: tabular-nums; }
+.off { font-weight: 700; color: var(--accent); }
+.normal { font-size: 13px; color: var(--muted); }
+.dates { font-size: 14px; }
+.meta { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
+.btn { text-decoration: none; font-weight: 700; font-size: 14px; border-radius: 8px; padding: 8px 12px; border: 1px solid var(--line); color: var(--ink); background: var(--surface-2); }
+.btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 14px; padding: 28px; text-align: center; color: var(--muted); }
+section.routes { display: flex; flex-direction: column; gap: 10px; }
+section.routes h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); }
+td.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: 0; }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 720px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .count { margin-left: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Clube VIP · motor de achados</span>
+    <h1 id="titulo"></h1>
+    <p class="sub" id="subtitulo"></p>
+    <p class="updated" id="atualizado"></p>
+  </header>
+  <p class="banner" id="aviso" hidden>Página de exemplo com dados fictícios, só para ver o visual.</p>
+  <div class="stats" id="stats" aria-label="Resumo"></div>
+  <details class="how">
+    <summary>Como ler os achados</summary>
+    <ul>
+      <li>Preços de ida e volta por pessoa, em reais, vindos de buscas recentes de outros viajantes.</li>
+      <li>"Abaixo do normal" compara com o preço normal da rota naquele mês de saída (ou da rota inteira, quando o mês tem poucas datas), somando os últimos dias conforme o histórico cresce. Assim, baixa temporada não aparece como promoção.</li>
+      <li><b>Conferido</b>: o preço foi checado no Google Flights e o Google também considera baixo. <b>A conferir</b>: ainda não foi checado; clique em "Ver no Google Flights" para ver o preço de agora.</li>
+      <li>Promoção acaba rápido. Um achado pode sumir horas depois de aparecer.</li>
+    </ul>
+  </details>
+  <div class="filters">
+    <label for="f-origem">Origem<select id="f-origem"></select></label>
+    <label for="f-destino">Destino<select id="f-destino"></select></label>
+    <label for="f-ordem">Ordenar<select id="f-ordem">
+      <option value="desconto">Maior desconto</option>
+      <option value="preco">Menor preço</option>
+      <option value="recente">Mais recentes</option>
+      <option value="ida">Data de ida</option>
+    </select></label>
+    <label class="check" for="f-conferidos"><input type="checkbox" id="f-conferidos"> Só conferidos</label>
+    <span class="count" id="contagem" aria-live="polite"></span>
+  </div>
+  <div class="grid" id="lista"></div>
+  <section class="routes">
+    <h2>Rotas monitoradas</h2>
+    <p class="sub">Quanto o motor conseguiu analisar em cada rota na última varredura.</p>
+    <div class="table-wrap"><table id="rotas"></table></div>
+  </section>
+  <footer>Preços consultados automaticamente e sujeitos a mudança a qualquer momento. Confira sempre o valor final antes de comprar.</footer>
+</div>
+<script id="dados" type="application/json">{"gerado_em": "2026-11-13T19:24:24+00:00", "titulo": "Achados do motor", "subtitulo": "Teste do Clube VIP com a Miriã · 13 a 27/11", "achados": [{"id": "SAO-MAD-2026-12-07-2026-12-24", "origem": "SAO", "destino": "MAD", "origem_nome": "São Paulo", "origem_detalhe": "GRU", "destino_nome": "Madri", "destino_detalhe": "MAD", "ida": "2026-12-07", "volta": "2026-12-24", "estadia_dias": 17, "preco": 3890.0, "preco_normal": 5707.5, "desconto": 0.3184, "erro_tarifario": false, "cia": "Air China", "vendedor": "Kiwi.com", "base_normal": "mes", "escalas_ida": 0, "escalas_volta": 0, "visto_em": "2026-11-13T19:24:24+00:00", "primeiro_em": "2026-11-13T19:19:45+00:00", "status": "a_conferir", "conferido_por": "", "conferido_em": null, "preco_google": null, "nota_conferencia": "", "link_google": "https://www.google.com/travel/flights?q=Flights%20from%20Sao%20Paulo%20to%20Madrid%20on%202026-12-07%20through%202026-12-24&curr=BRL&hl=pt-BR", "link_aviasales": "https://www.aviasales.com/search/SAO0712MAD24121?t=CA17966322001796682900000605GRUMAD17981514001798176600000660MADGRU_62b7c6423bb381ebf505c06cd3db0f42_57124&search_date=12112026&expected_price_uuid=01a1d115-3889-8030-ec39-8a992a679c44&static_fare_key=TY%7CP0%7CH1%7CL0%7CCH1%7CR0%7CTBC0&itinerary_key=v40htj0kijKEVw7VbuWpgA&expected_price_source=share&expected_price_currency=brl&expected_price=3890"}, {"id": "SAO-NYC-2027-10-01-2027-10-21", "origem": "SAO", "destino": "NYC", "origem_nome": "São Paulo", "origem_detalhe": "GRU", "destino_nome": "Nova York", "destino_detalhe": "EWR", "ida": "2027-10-01", "volta": "2027-10-21", "estadia_dias": 20, "preco": 3526.0, "preco_normal": 5269.5, "desconto": 0.3309, "erro_tarifario": false, "cia": "DM", "vendedor": "Gotogate", "base_normal": "rota", "escalas_ida": 1, "escalas_volta": 1, "visto_em": "2026-11-13T19:24:24+00:00", "primeiro_em": "2026-11-13T19:19:45+00:00", "status": "a_conferir", "conferido_por": "", "conferido_em": null, "preco_google": null, "nota_conferencia": "", "link_google": "https://www.google.com/travel/flights?q=Flights%20from%20Sao%20Paulo%20to%20New%20York%20on%202027-10-01%20through%202027-10-21&curr=BRL&hl=pt-BR", "link_aviasales": "https://www.aviasales.com/search/SAO0110NYC21101?t=DM18224349001822519800001475GRUPUJEWR18241200001824174600000850EWRPUJGRU_62b9ec3d44c8046674a5e60f23f38b06_51362&search_date=13112026&expected_price_uuid=01a1d5b3-7bf4-8030-a6f1-c38bfa39a709&static_fare_key=TY%7CP1%7CH0%7CL0%7CCH0%7CR0%7CTBC0&itinerary_key=K2Ajuxp3opB5E6bcWTEkuA&expected_price_source=share&expected_price_currency=brl&expected_price=3526"}], "rotas": [{"chave": "SAO-LIS", "origem_nome": "São Paulo", "destino_nome": "Lisboa", "status": "ok", "amostra": 74, "preco_normal": 4111.0, "menor_preco": 3536.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-NYC", "origem_nome": "São Paulo", "destino_nome": "Nova York", "status": "ok", "amostra": 12, "preco_normal": 5269.5, "menor_preco": 3526.0, "achados": 1, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-MIA", "origem_nome": "São Paulo", "destino_nome": "Miami", "status": "ok", "amostra": 30, "preco_normal": 3866.0, "menor_preco": 3063.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-YTO", "origem_nome": "São Paulo", "destino_nome": "Toronto", "status": "poucos_dados", "amostra": 9, "preco_normal": null, "menor_preco": 3993.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-PAR", "origem_nome": "São Paulo", "destino_nome": "Paris", "status": "ok", "amostra": 21, "preco_normal": 5192.0, "menor_preco": 4612.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-MAD", "origem_nome": "São Paulo", "destino_nome": "Madri", "status": "ok", "amostra": 73, "preco_normal": 4208.0, "menor_preco": 3564.0, "achados": 1, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-AMS", "origem_nome": "São Paulo", "destino_nome": "Amsterdã", "status": "poucos_dados", "amostra": 5, "preco_normal": null, "menor_preco": 4792.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-FRA", "origem_nome": "São Paulo", "destino_nome": "Frankfurt", "status": "poucos_dados", "amostra": 8, "preco_normal": null, "menor_preco": 5280.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-MUC", "origem_nome": "São Paulo", "destino_nome": "Munique", "status": "poucos_dados", "amostra": 5, "preco_normal": null, "menor_preco": 5150.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-IST", "origem_nome": "São Paulo", "destino_nome": "Istambul", "status": "ok", "amostra": 32, "preco_normal": 7114.0, "menor_preco": 5556.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-SHA", "origem_nome": "São Paulo", "destino_nome": "Xangai", "status": "ok", "amostra": 13, "preco_normal": 8650.0, "menor_preco": 8417.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-HKG", "origem_nome": "São Paulo", "destino_nome": "Hong Kong", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 8438.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-BJS", "origem_nome": "São Paulo", "destino_nome": "Pequim", "status": "poucos_dados", "amostra": 4, "preco_normal": null, "menor_preco": 7772.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "SAO-TYO", "origem_nome": "São Paulo", "destino_nome": "Tóquio", "status": "ok", "amostra": 22, "preco_normal": 9474.0, "menor_preco": 6962.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-LIS", "origem_nome": "Rio de Janeiro", "destino_nome": "Lisboa", "status": "poucos_dados", "amostra": 5, "preco_normal": null, "menor_preco": 4224.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-NYC", "origem_nome": "Rio de Janeiro", "destino_nome": "Nova York", "status": "poucos_dados", "amostra": 2, "preco_normal": null, "menor_preco": 3530.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-MIA", "origem_nome": "Rio de Janeiro", "destino_nome": "Miami", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 4653.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-YTO", "origem_nome": "Rio de Janeiro", "destino_nome": "Toronto", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-PAR", "origem_nome": "Rio de Janeiro", "destino_nome": "Paris", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 5734.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-MAD", "origem_nome": "Rio de Janeiro", "destino_nome": "Madri", "status": "poucos_dados", "amostra": 3, "preco_normal": null, "menor_preco": 4683.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-AMS", "origem_nome": "Rio de Janeiro", "destino_nome": "Amsterdã", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-FRA", "origem_nome": "Rio de Janeiro", "destino_nome": "Frankfurt", "status": "poucos_dados", "amostra": 2, "preco_normal": null, "menor_preco": 6116.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-MUC", "origem_nome": "Rio de Janeiro", "destino_nome": "Munique", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 8313.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-IST", "origem_nome": "Rio de Janeiro", "destino_nome": "Istambul", "status": "poucos_dados", "amostra": 6, "preco_normal": null, "menor_preco": 6374.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-SHA", "origem_nome": "Rio de Janeiro", "destino_nome": "Xangai", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-HKG", "origem_nome": "Rio de Janeiro", "destino_nome": "Hong Kong", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-BJS", "origem_nome": "Rio de Janeiro", "destino_nome": "Pequim", "status": "poucos_dados", "amostra": 2, "preco_normal": null, "menor_preco": 8603.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "RIO-TYO", "origem_nome": "Rio de Janeiro", "destino_nome": "Tóquio", "status": "poucos_dados", "amostra": 4, "preco_normal": null, "menor_preco": 7521.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-LIS", "origem_nome": "Belo Horizonte", "destino_nome": "Lisboa", "status": "ok", "amostra": 17, "preco_normal": 6125.0, "menor_preco": 5364.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-NYC", "origem_nome": "Belo Horizonte", "destino_nome": "Nova York", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 5042.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-MIA", "origem_nome": "Belo Horizonte", "destino_nome": "Miami", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 4632.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-YTO", "origem_nome": "Belo Horizonte", "destino_nome": "Toronto", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-PAR", "origem_nome": "Belo Horizonte", "destino_nome": "Paris", "status": "poucos_dados", "amostra": 1, "preco_normal": null, "menor_preco": 7323.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-MAD", "origem_nome": "Belo Horizonte", "destino_nome": "Madri", "status": "ok", "amostra": 16, "preco_normal": 5982.0, "menor_preco": 5663.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-AMS", "origem_nome": "Belo Horizonte", "destino_nome": "Amsterdã", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-FRA", "origem_nome": "Belo Horizonte", "destino_nome": "Frankfurt", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-MUC", "origem_nome": "Belo Horizonte", "destino_nome": "Munique", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-IST", "origem_nome": "Belo Horizonte", "destino_nome": "Istambul", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-SHA", "origem_nome": "Belo Horizonte", "destino_nome": "Xangai", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-HKG", "origem_nome": "Belo Horizonte", "destino_nome": "Hong Kong", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-BJS", "origem_nome": "Belo Horizonte", "destino_nome": "Pequim", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BHZ-TYO", "origem_nome": "Belo Horizonte", "destino_nome": "Tóquio", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-LIS", "origem_nome": "Brasília", "destino_nome": "Lisboa", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-NYC", "origem_nome": "Brasília", "destino_nome": "Nova York", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-MIA", "origem_nome": "Brasília", "destino_nome": "Miami", "status": "poucos_dados", "amostra": 7, "preco_normal": null, "menor_preco": 2753.0, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-YTO", "origem_nome": "Brasília", "destino_nome": "Toronto", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-PAR", "origem_nome": "Brasília", "destino_nome": "Paris", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-MAD", "origem_nome": "Brasília", "destino_nome": "Madri", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-AMS", "origem_nome": "Brasília", "destino_nome": "Amsterdã", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-FRA", "origem_nome": "Brasília", "destino_nome": "Frankfurt", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-MUC", "origem_nome": "Brasília", "destino_nome": "Munique", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-IST", "origem_nome": "Brasília", "destino_nome": "Istambul", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-SHA", "origem_nome": "Brasília", "destino_nome": "Xangai", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-HKG", "origem_nome": "Brasília", "destino_nome": "Hong Kong", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-BJS", "origem_nome": "Brasília", "destino_nome": "Pequim", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}, {"chave": "BSB-TYO", "origem_nome": "Brasília", "destino_nome": "Tóquio", "status": "poucos_dados", "amostra": 0, "preco_normal": null, "menor_preco": null, "achados": 0, "varrida_em": "2026-11-13T19:24:24+00:00"}], "origens": [{"codigo": "SAO", "nome": "São Paulo"}, {"codigo": "RIO", "nome": "Rio de Janeiro"}, {"codigo": "BHZ", "nome": "Belo Horizonte"}, {"codigo": "BSB", "nome": "Brasília"}], "destinos": [{"codigo": "LIS", "nome": "Lisboa"}, {"codigo": "NYC", "nome": "Nova York"}, {"codigo": "MIA", "nome": "Miami"}, {"codigo": "YTO", "nome": "Toronto"}, {"codigo": "PAR", "nome": "Paris"}, {"codigo": "MAD", "nome": "Madri"}, {"codigo": "AMS", "nome": "Amsterdã"}, {"codigo": "FRA", "nome": "Frankfurt"}, {"codigo": "MUC", "nome": "Munique"}, {"codigo": "IST", "nome": "Istambul"}, {"codigo": "SHA", "nome": "Xangai"}, {"codigo": "HKG", "nome": "Hong Kong"}, {"codigo": "BJS", "nome": "Pequim"}, {"codigo": "TYO", "nome": "Tóquio"}]}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('dados').textContent);
+  var tz = 'America/Sao_Paulo';
+  var brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  var pct = new Intl.NumberFormat('pt-BR', { style: 'percent', maximumFractionDigits: 0 });
+  var dia = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', timeZone: 'UTC' });
+  var semana = new Intl.DateTimeFormat('pt-BR', { weekday: 'short', timeZone: 'UTC' });
+  var quando = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: tz });
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function dataCurta(iso) { var d = new Date(iso + 'T12:00:00Z'); return semana.format(d).replace('.', '') + ', ' + dia.format(d).replace('.', ''); }
+  function hora(iso) { return iso ? quando.format(new Date(iso)) : ''; }
+  function escalas(n) { return n == null ? '' : (n === 0 ? 'direto' : n === 1 ? '1 escala' : n + ' escalas'); }
+
+  document.getElementById('titulo').textContent = D.titulo;
+  document.getElementById('subtitulo').textContent = D.subtitulo;
+  document.getElementById('atualizado').textContent = 'Atualizado em ' + hora(D.gerado_em) + ' (horário de Brasília)';
+  document.getElementById('aviso').hidden = !D.aviso_exemplo;
+
+  var conferidos = D.achados.filter(function (a) { return a.status === 'conferido'; });
+  var media = D.achados.length ? D.achados.reduce(function (s, a) { return s + a.desconto; }, 0) / D.achados.length : null;
+  var comDados = D.rotas.filter(function (r) { return r.status === 'ok'; }).length;
+  [[D.achados.length, 'achados ativos'], [conferidos.length, 'conferidos no Google'],
+   [media == null ? '–' : pct.format(media), 'desconto médio'], [comDados + ' de ' + D.rotas.length, 'rotas com dados']]
+    .forEach(function (s) { var b = el('div', 'stat'); b.append(el('b', null, String(s[0])), el('span', null, s[1])); document.getElementById('stats').append(b); });
+
+  function preencher(sel, itens, todos) {
+    sel.append(new Option(todos, ''));
+    itens.forEach(function (i) { sel.append(new Option(i.nome, i.codigo)); });
+  }
+  var fO = document.getElementById('f-origem'), fD = document.getElementById('f-destino');
+  var fOrd = document.getElementById('f-ordem'), fC = document.getElementById('f-conferidos');
+  preencher(fO, D.origens, 'Todas'); preencher(fD, D.destinos, 'Todos');
+
+  function card(a) {
+    var c = el('article', 'card');
+    var top = el('div', 'top');
+    var t = el('div');
+    t.append(el('h3', 'route', a.origem_nome + ' → ' + a.destino_nome));
+    var aer = [a.origem_detalhe, a.destino_detalhe].filter(Boolean).join(' → ');
+    if (aer) t.append(el('p', 'airports', aer));
+    top.append(t);
+    var chip;
+    if (a.erro_tarifario) chip = el('span', 'chip err', 'Possível erro tarifário');
+    else if (a.status === 'conferido') chip = el('span', 'chip ok', 'Conferido');
+    else chip = el('span', 'chip pend', 'A conferir');
+    top.append(chip);
+    c.append(top);
+    var p = el('div', 'price');
+    p.append(el('b', null, brl.format(a.preco)), el('span', 'off', pct.format(a.desconto) + ' abaixo do normal'));
+    c.append(p);
+    var mesNome = new Intl.DateTimeFormat('pt-BR', { month: 'long', timeZone: 'UTC' }).format(new Date(a.ida + 'T12:00:00Z'));
+    c.append(el('p', 'normal', (a.base_normal === 'mes' ? 'Normal da rota em ' + mesNome + ': ' : 'Normal da rota: ') + brl.format(a.preco_normal) + ' · ida e volta'));
+    c.append(el('p', 'dates', dataCurta(a.ida) + ' → ' + dataCurta(a.volta) + (a.estadia_dias ? ' · ' + a.estadia_dias + ' dias' : '')));
+    var meta = el('div', 'meta');
+    if (a.cia) meta.append(el('span', null, a.cia));
+    if (a.vendedor) meta.append(el('span', null, 'vendido por ' + a.vendedor));
+    var esc = [escalas(a.escalas_ida), escalas(a.escalas_volta)].filter(Boolean);
+    if (esc.length) meta.append(el('span', null, 'ida ' + esc[0] + (esc[1] ? ' · volta ' + esc[1] : '')));
+    meta.append(el('span', null, 'visto em ' + hora(a.visto_em)));
+    if (a.status === 'conferido' && a.conferido_em) meta.append(el('span', null, (a.conferido_por === 'google' ? 'conferido no Google em ' : 'conferido em ') + hora(a.conferido_em)));
+    c.append(meta);
+    if (a.nota_conferencia) c.append(el('p', 'normal', a.nota_conferencia));
+    var links = el('div', 'links');
+    var g = el('a', 'btn primary', 'Ver no Google Flights'); g.href = a.link_google; g.target = '_blank'; g.rel = 'noopener';
+    links.append(g);
+    if (a.link_aviasales) { var v = el('a', 'btn', 'Ver na Aviasales'); v.href = a.link_aviasales; v.target = '_blank'; v.rel = 'noopener'; links.append(v); }
+    c.append(links);
+    return c;
+  }
+
+  function render() {
+    var lista = D.achados.filter(function (a) {
+      return (!fO.value || a.origem === fO.value) && (!fD.value || a.destino === fD.value) && (!fC.checked || a.status === 'conferido');
+    });
+    var ord = fOrd.value;
+    lista.sort(function (x, y) {
+      if (ord === 'preco') return x.preco - y.preco;
+      if (ord === 'recente') return y.primeiro_em.localeCompare(x.primeiro_em);
+      if (ord === 'ida') return x.ida.localeCompare(y.ida);
+      return y.desconto - x.desconto;
+    });
+    var box = document.getElementById('lista');
+    box.replaceChildren();
+    if (!lista.length) {
+      box.append(el('p', 'empty', D.achados.length ? 'Nenhum achado com esses filtros.' : 'Ainda não há achados. O motor varre as rotas a cada 6 horas e os achados aparecem aqui.'));
+    } else lista.forEach(function (a) { box.append(card(a)); });
+    document.getElementById('contagem').textContent = lista.length + (lista.length === 1 ? ' achado' : ' achados');
+  }
+  [fO, fD, fOrd, fC].forEach(function (x) { x.addEventListener('change', render); });
+  render();
+
+  var nomes = { ok: 'Analisada', poucos_dados: 'Poucos preços', erro: 'Erro na consulta', nao_varrida: 'Ainda não varrida' };
+  var tab = document.getElementById('rotas');
+  var cab = document.createElement('tr');
+  ['Rota', 'Preço normal', 'Menor preço', 'Datas analisadas', 'Achados', 'Situação', 'Varrida em'].forEach(function (h) { cab.append(el('th', null, h)); });
+  tab.append(cab);
+  D.rotas.forEach(function (r) {
+    var tr = document.createElement('tr');
+    tr.append(el('td', null, r.origem_nome + ' → ' + r.destino_nome),
+      el('td', 'num', r.preco_normal ? brl.format(r.preco_normal) : '–'),
+      el('td', 'num', r.menor_preco ? brl.format(r.menor_preco) : '–'),
+      el('td', 'num', String(r.amostra || 0)),
+      el('td', 'num', String(r.achados || 0)),
+      el('td', null, nomes[r.status] || r.status),
+      el('td', 'num', r.varrida_em ? hora(r.varrida_em) : '–'));
+    tab.append(tr);
+  });
+})();
+</script>
+</body>
+</html>

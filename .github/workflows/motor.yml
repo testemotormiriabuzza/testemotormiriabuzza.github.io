@@ -1,0 +1,56 @@
+name: Motor de achados
+
+on:
+  schedule:
+    # A cada 6 horas. São Paulo roda sempre; Rio, BH e Brasília às 00h e 12h UTC (21h e 9h em Brasília).
+    - cron: "5 0,6,12,18 * * *"
+  workflow_dispatch:
+    inputs:
+      todas:
+        description: "Varrer todas as rotas agora"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: motor
+  cancel-in-progress: false
+
+jobs:
+  rodar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Testes
+        run: python -m unittest discover -s tests -v
+
+      - name: Rodar o motor
+        env:
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.todas }}" = "true" ]; then
+            python -m motor rodar --todas
+          else
+            python -m motor rodar --agenda auto
+          fi
+
+      - name: Salvar resultados e site
+        run: |
+          git config user.name "motor-bot"
+          git config user.email "motor-bot@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "Nada novo."
+          else
+            git commit -m "Achados $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git push
+          fi
