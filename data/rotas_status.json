@@ -476,7 +476,7 @@
   "preco_normal": null,
   "rota": "SAO-AMS",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-BJS": {
   "amostra": 6,
@@ -487,7 +487,7 @@
   "preco_normal": null,
   "rota": "SAO-BJS",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-FRA": {
   "amostra": 11,
@@ -498,7 +498,7 @@
   "preco_normal": null,
   "rota": "SAO-FRA",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-HKG": {
   "amostra": 1,
@@ -509,13 +509,13 @@
   "preco_normal": null,
   "rota": "SAO-HKG",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-IST": {
   "achados": 0,
-  "amostra": 64,
+  "amostra": 65,
   "candidatos": 0,
-  "da_memoria": 15,
+  "da_memoria": 16,
   "dias_historico": 5,
   "erros": 0,
   "menor_preco": 5588.0,
@@ -523,13 +523,13 @@
   "preco_normal": 7060.0,
   "rota": "SAO-IST",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-LIS": {
   "achados": 0,
-  "amostra": 105,
+  "amostra": 106,
   "candidatos": 0,
-  "da_memoria": 19,
+  "da_memoria": 20,
   "dias_historico": 5,
   "erros": 0,
   "menor_preco": 3748.0,
@@ -537,11 +537,11 @@
   "preco_normal": 4149.5,
   "rota": "SAO-LIS",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-MAD": {
   "achados": 1,
-  "amostra": 80,
+  "amostra": 81,
   "candidatos": 1,
   "da_memoria": 31,
   "dias_historico": 5,
@@ -551,21 +551,21 @@
   "preco_normal": 4184.0,
   "rota": "SAO-MAD",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-MIA": {
   "achados": 0,
-  "amostra": 35,
+  "amostra": 36,
   "candidatos": 0,
-  "da_memoria": 13,
+  "da_memoria": 15,
   "dias_historico": 5,
   "erros": 0,
   "menor_preco": 3063.0,
   "meses_com_base": 3,
-  "preco_normal": 3921.0,
+  "preco_normal": 3902.25,
   "rota": "SAO-MIA",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-MUC": {
   "amostra": 5,
@@ -576,27 +576,27 @@
   "preco_normal": null,
   "rota": "SAO-MUC",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-NYC": {
   "achados": 1,
-  "amostra": 16,
+  "amostra": 17,
   "candidatos": 1,
   "da_memoria": 6,
   "dias_historico": 5,
   "erros": 0,
   "menor_preco": 3535.0,
   "meses_com_base": 1,
-  "preco_normal": 5165.5,
+  "preco_normal": 5132.0,
   "rota": "SAO-NYC",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-PAR": {
   "achados": 0,
-  "amostra": 28,
+  "amostra": 29,
   "candidatos": 0,
-  "da_memoria": 9,
+  "da_memoria": 10,
   "dias_historico": 5,
   "erros": 0,
   "menor_preco": 4612.0,
@@ -604,7 +604,7 @@
   "preco_normal": 5205.0,
   "rota": "SAO-PAR",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-SHA": {
   "amostra": 11,
@@ -615,13 +615,13 @@
   "preco_normal": null,
   "rota": "SAO-SHA",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-TYO": {
   "achados": 0,
   "amostra": 28,
   "candidatos": 0,
-  "da_memoria": 13,
+  "da_memoria": 14,
   "dias_historico": 5,
   "erros": 0,
   "menor_preco": 6989.0,
@@ -629,7 +629,7 @@
   "preco_normal": 9374.5,
   "rota": "SAO-TYO",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  },
  "SAO-YTO": {
   "achados": 0,
@@ -643,6 +643,6 @@
   "preco_normal": 5290.25,
   "rota": "SAO-YTO",
   "status": "ok",
-  "varrida_em": "2026-11-18T00:57:47+00:00"
+  "varrida_em": "2026-11-18T07:02:37+00:00"
  }
 }
