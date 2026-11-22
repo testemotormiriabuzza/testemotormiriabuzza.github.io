@@ -7,7 +7,7 @@
    "cia": "DM",
    "conferencia": null,
    "curadoria": null,
-   "desconto": 0.3615,
+   "desconto": 0.3584,
    "destino": "NYC",
    "duracao_min": 1680,
    "erro_tarifario": false,
@@ -23,11 +23,11 @@
    "moeda": "BRL",
    "origem": "SAO",
    "preco": 3304.0,
-   "preco_normal": 5175.0,
+   "preco_normal": 5150.0,
    "primeiro_em": "2026-11-19T00:57:01+00:00",
    "rota": "SAO-NYC",
    "vendedor": "Gotogate",
-   "visto_em": "2026-11-21T18:37:49+00:00",
+   "visto_em": "2026-11-22T00:48:54+00:00",
    "volta": "2027-02-24",
    "voo": "6081"
   },
@@ -58,7 +58,7 @@
    "primeiro_em": "2026-11-20T18:52:42+00:00",
    "rota": "SAO-TYO",
    "vendedor": "Trip.com",
-   "visto_em": "2026-11-21T18:37:49+00:00",
+   "visto_em": "2026-11-22T00:48:54+00:00",
    "volta": "2026-12-24",
    "voo": "5510"
   }
