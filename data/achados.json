@@ -1,5 +1,36 @@
 {
  "ativos": {
+  "SAO-MIA-2026-12-06-2026-12-11": {
+   "aeroporto_destino": "MIA",
+   "aeroporto_origem": "GRU",
+   "base_normal": "mes",
+   "cia": "AV",
+   "conferencia": null,
+   "curadoria": null,
+   "desconto": 0.3524,
+   "destino": "MIA",
+   "duracao_min": 1930,
+   "erro_tarifario": false,
+   "escalas_ida": 1,
+   "escalas_volta": 1,
+   "estadia_dias": 5,
+   "fonte": "travelpayouts",
+   "hora_ida": "07:55",
+   "id": "SAO-MIA-2026-12-06-2026-12-11",
+   "ida": "2026-12-06",
+   "link_aviasales": "https://www.aviasales.com/search/SAO0612MIA11121?t=AV17965437001796601900001090GRUBOGMIA17969721001797029700000840MIABOGGRU_749d2184917406f467948a118e0ad0b4_54326&search_date=22112026&expected_price_uuid=01a20447-1ee9-8040-abb4-cadb09ea7347&static_fare_key=TY%7CP1%7CH1%7CL0%7CCH0%7CR0%7CTBC0&itinerary_key=X19ERQwg9yehaYWvn8vx1Q&expected_price_source=share&expected_price_currency=brl&expected_price=3967",
+   "menor_preco_visto": 3967.0,
+   "moeda": "BRL",
+   "origem": "SAO",
+   "preco": 3967.0,
+   "preco_normal": 6125.5,
+   "primeiro_em": "2026-11-22T18:38:38+00:00",
+   "rota": "SAO-MIA",
+   "vendedor": "Wingie",
+   "visto_em": "2026-11-22T18:38:38+00:00",
+   "volta": "2026-12-11",
+   "voo": "86"
+  },
   "SAO-NYC-2027-02-18-2027-02-24": {
    "aeroporto_destino": "EWR",
    "aeroporto_origem": "GRU",
@@ -27,7 +58,7 @@
    "primeiro_em": "2026-11-19T00:57:01+00:00",
    "rota": "SAO-NYC",
    "vendedor": "Gotogate",
-   "visto_em": "2026-11-22T12:44:10+00:00",
+   "visto_em": "2026-11-22T18:38:38+00:00",
    "volta": "2027-02-24",
    "voo": "6081"
   },
@@ -58,7 +89,7 @@
    "primeiro_em": "2026-11-20T18:52:42+00:00",
    "rota": "SAO-TYO",
    "vendedor": "Trip.com",
-   "visto_em": "2026-11-22T12:44:10+00:00",
+   "visto_em": "2026-11-22T18:38:38+00:00",
    "volta": "2026-12-24",
    "voo": "5510"
   }
