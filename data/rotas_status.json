@@ -482,7 +482,7 @@
   "preco_normal": 4968.0,
   "rota": "SAO-AMS",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-BJS": {
   "amostra": 7,
@@ -493,7 +493,7 @@
   "preco_normal": null,
   "rota": "SAO-BJS",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-FRA": {
   "achados": 0,
@@ -507,7 +507,7 @@
   "preco_normal": 5807.5,
   "rota": "SAO-FRA",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-HKG": {
   "amostra": 1,
@@ -518,27 +518,27 @@
   "preco_normal": null,
   "rota": "SAO-HKG",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-IST": {
   "achados": 0,
-  "amostra": 114,
+  "amostra": 119,
   "candidatos": 0,
-  "da_memoria": 47,
+  "da_memoria": 54,
   "dias_historico": 10,
   "erros": 0,
   "menor_preco": 5588.0,
   "meses_com_base": 8,
-  "preco_normal": 7070.5,
+  "preco_normal": 7065.0,
   "rota": "SAO-IST",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-LIS": {
   "achados": 0,
   "amostra": 148,
   "candidatos": 0,
-  "da_memoria": 73,
+  "da_memoria": 76,
   "dias_historico": 10,
   "erros": 0,
   "menor_preco": 3772.0,
@@ -546,27 +546,27 @@
   "preco_normal": 4463.5,
   "rota": "SAO-LIS",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-MAD": {
-  "achados": 0,
-  "amostra": 116,
-  "candidatos": 0,
-  "da_memoria": 75,
+  "achados": 1,
+  "amostra": 121,
+  "candidatos": 1,
+  "da_memoria": 76,
   "dias_historico": 10,
   "erros": 0,
-  "menor_preco": 3484.0,
+  "menor_preco": 2990.0,
   "meses_com_base": 7,
   "preco_normal": 4208.5,
   "rota": "SAO-MAD",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-MIA": {
   "achados": 1,
   "amostra": 77,
   "candidatos": 1,
-  "da_memoria": 27,
+  "da_memoria": 29,
   "dias_historico": 10,
   "erros": 0,
   "menor_preco": 3034.0,
@@ -574,7 +574,7 @@
   "preco_normal": 3866.0,
   "rota": "SAO-MIA",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-MUC": {
   "amostra": 8,
@@ -585,27 +585,27 @@
   "preco_normal": null,
   "rota": "SAO-MUC",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-NYC": {
-  "achados": 3,
-  "amostra": 36,
-  "candidatos": 3,
+  "achados": 2,
+  "amostra": 38,
+  "candidatos": 2,
   "da_memoria": 12,
   "dias_historico": 10,
   "erros": 0,
-  "menor_preco": 3238.0,
-  "meses_com_base": 2,
+  "menor_preco": 3240.0,
+  "meses_com_base": 3,
   "preco_normal": 5132.0,
   "rota": "SAO-NYC",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-PAR": {
   "achados": 0,
   "amostra": 33,
   "candidatos": 0,
-  "da_memoria": 26,
+  "da_memoria": 27,
   "dias_historico": 10,
   "erros": 0,
   "menor_preco": 4613.0,
@@ -613,7 +613,7 @@
   "preco_normal": 5221.0,
   "rota": "SAO-PAR",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-SHA": {
   "achados": 0,
@@ -627,7 +627,7 @@
   "preco_normal": 8646.0,
   "rota": "SAO-SHA",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-TYO": {
   "achados": 1,
@@ -641,7 +641,7 @@
   "preco_normal": 9191.0,
   "rota": "SAO-TYO",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  },
  "SAO-YTO": {
   "achados": 0,
@@ -655,6 +655,6 @@
   "preco_normal": 5282.0,
   "rota": "SAO-YTO",
   "status": "ok",
-  "varrida_em": "2026-11-23T13:03:57+00:00"
+  "varrida_em": "2026-11-23T18:53:24+00:00"
  }
 }
