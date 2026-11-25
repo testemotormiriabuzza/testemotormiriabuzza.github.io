@@ -482,7 +482,7 @@
   "preco_normal": 5114.0,
   "rota": "SAO-AMS",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-BJS": {
   "amostra": 5,
@@ -493,11 +493,11 @@
   "preco_normal": null,
   "rota": "SAO-BJS",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-FRA": {
   "achados": 0,
-  "amostra": 14,
+  "amostra": 15,
   "candidatos": 0,
   "da_memoria": 8,
   "dias_historico": 12,
@@ -507,24 +507,24 @@
   "preco_normal": 5807.5,
   "rota": "SAO-FRA",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-HKG": {
-  "amostra": 1,
-  "da_memoria": 1,
+  "amostra": 0,
+  "da_memoria": 0,
   "dias_historico": 3,
   "erros": 0,
-  "menor_preco": 8438.0,
+  "menor_preco": null,
   "preco_normal": null,
   "rota": "SAO-HKG",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-IST": {
   "achados": 0,
-  "amostra": 128,
+  "amostra": 124,
   "candidatos": 0,
-  "da_memoria": 70,
+  "da_memoria": 68,
   "dias_historico": 12,
   "erros": 0,
   "menor_preco": 5588.0,
@@ -532,13 +532,13 @@
   "preco_normal": 7051.0,
   "rota": "SAO-IST",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-LIS": {
   "achados": 0,
-  "amostra": 164,
+  "amostra": 165,
   "candidatos": 0,
-  "da_memoria": 83,
+  "da_memoria": 86,
   "dias_historico": 12,
   "erros": 0,
   "menor_preco": 3795.0,
@@ -546,21 +546,21 @@
   "preco_normal": 4472.0,
   "rota": "SAO-LIS",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-MAD": {
   "achados": 1,
-  "amostra": 123,
+  "amostra": 122,
   "candidatos": 1,
-  "da_memoria": 56,
+  "da_memoria": 55,
   "dias_historico": 12,
   "erros": 0,
-  "menor_preco": 3365.0,
+  "menor_preco": 3340.0,
   "meses_com_base": 8,
   "preco_normal": 4302.0,
   "rota": "SAO-MAD",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-MIA": {
   "achados": 1,
@@ -574,7 +574,7 @@
   "preco_normal": 3866.0,
   "rota": "SAO-MIA",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-MUC": {
   "amostra": 8,
@@ -585,13 +585,13 @@
   "preco_normal": null,
   "rota": "SAO-MUC",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-NYC": {
   "achados": 2,
-  "amostra": 40,
+  "amostra": 42,
   "candidatos": 2,
-  "da_memoria": 9,
+  "da_memoria": 10,
   "dias_historico": 12,
   "erros": 0,
   "menor_preco": 3167.0,
@@ -599,13 +599,13 @@
   "preco_normal": 5121.5,
   "rota": "SAO-NYC",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-PAR": {
   "achados": 0,
   "amostra": 34,
   "candidatos": 0,
-  "da_memoria": 23,
+  "da_memoria": 25,
   "dias_historico": 12,
   "erros": 0,
   "menor_preco": 4613.0,
@@ -613,7 +613,7 @@
   "preco_normal": 5525.5,
   "rota": "SAO-PAR",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-SHA": {
   "achados": 0,
@@ -627,13 +627,13 @@
   "preco_normal": 8650.0,
   "rota": "SAO-SHA",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-TYO": {
   "achados": 1,
   "amostra": 42,
   "candidatos": 2,
-  "da_memoria": 18,
+  "da_memoria": 21,
   "dias_historico": 12,
   "erros": 0,
   "menor_preco": 6989.0,
@@ -641,11 +641,11 @@
   "preco_normal": 9191.0,
   "rota": "SAO-TYO",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  },
  "SAO-YTO": {
   "achados": 0,
-  "amostra": 22,
+  "amostra": 23,
   "candidatos": 0,
   "da_memoria": 13,
   "dias_historico": 12,
@@ -655,6 +655,6 @@
   "preco_normal": 5282.0,
   "rota": "SAO-YTO",
   "status": "ok",
-  "varrida_em": "2026-11-25T13:09:01+00:00"
+  "varrida_em": "2026-11-25T18:45:01+00:00"
  }
 }
