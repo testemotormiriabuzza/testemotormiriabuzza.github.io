@@ -479,18 +479,18 @@
   "preco_normal": 5650.0,
   "rota": "SAO-AMS",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-BJS": {
   "amostra": 5,
-  "da_memoria": 5,
+  "da_memoria": 4,
   "dias_historico": 13,
   "erros": 0,
   "menor_preco": 7802.0,
   "preco_normal": null,
   "rota": "SAO-BJS",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-FRA": {
   "achados": 0,
@@ -504,7 +504,7 @@
   "preco_normal": 5845.25,
   "rota": "SAO-FRA",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-HKG": {
   "amostra": 0,
@@ -515,21 +515,21 @@
   "preco_normal": null,
   "rota": "SAO-HKG",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-IST": {
   "achados": 0,
   "amostra": 125,
   "candidatos": 0,
-  "da_memoria": 68,
+  "da_memoria": 66,
   "dias_historico": 13,
   "erros": 0,
   "menor_preco": 5588.0,
   "meses_com_base": 8,
-  "preco_normal": 7036.5,
+  "preco_normal": 7051.0,
   "rota": "SAO-IST",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-LIS": {
   "achados": 0,
@@ -543,7 +543,7 @@
   "preco_normal": 4497.25,
   "rota": "SAO-LIS",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-MAD": {
   "achados": 1,
@@ -552,18 +552,18 @@
   "da_memoria": 56,
   "dias_historico": 13,
   "erros": 0,
-  "menor_preco": 3365.0,
+  "menor_preco": 3328.0,
   "meses_com_base": 8,
   "preco_normal": 4360.0,
   "rota": "SAO-MAD",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-MIA": {
   "achados": 1,
   "amostra": 85,
   "candidatos": 1,
-  "da_memoria": 24,
+  "da_memoria": 22,
   "dias_historico": 13,
   "erros": 0,
   "menor_preco": 2950.0,
@@ -571,7 +571,7 @@
   "preco_normal": 3831.25,
   "rota": "SAO-MIA",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-MUC": {
   "amostra": 8,
@@ -582,13 +582,13 @@
   "preco_normal": null,
   "rota": "SAO-MUC",
   "status": "poucos_dados",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-NYC": {
   "achados": 1,
-  "amostra": 41,
+  "amostra": 40,
   "candidatos": 1,
-  "da_memoria": 11,
+  "da_memoria": 10,
   "dias_historico": 13,
   "erros": 0,
   "menor_preco": 3167.0,
@@ -596,21 +596,21 @@
   "preco_normal": 5116.25,
   "rota": "SAO-NYC",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-PAR": {
   "achados": 0,
-  "amostra": 34,
+  "amostra": 33,
   "candidatos": 0,
-  "da_memoria": 24,
+  "da_memoria": 23,
   "dias_historico": 13,
   "erros": 0,
   "menor_preco": 4613.0,
   "meses_com_base": 2,
-  "preco_normal": 5689.5,
+  "preco_normal": 5693.75,
   "rota": "SAO-PAR",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-SHA": {
   "achados": 0,
@@ -624,21 +624,21 @@
   "preco_normal": 8766.5,
   "rota": "SAO-SHA",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-TYO": {
   "achados": 1,
-  "amostra": 41,
+  "amostra": 37,
   "candidatos": 1,
-  "da_memoria": 22,
+  "da_memoria": 18,
   "dias_historico": 13,
   "erros": 0,
   "menor_preco": 6989.0,
-  "meses_com_base": 3,
+  "meses_com_base": 2,
   "preco_normal": 9202.5,
   "rota": "SAO-TYO",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  },
  "SAO-YTO": {
   "achados": 0,
@@ -652,6 +652,6 @@
   "preco_normal": 5282.0,
   "rota": "SAO-YTO",
   "status": "ok",
-  "varrida_em": "2026-11-26T00:58:48+00:00"
+  "varrida_em": "2026-11-26T07:05:09+00:00"
  }
 }
